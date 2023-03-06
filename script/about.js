@@ -1,11 +1,12 @@
 (($)=>{
-    const mobPoint = 600;
+    const mobPoint = 780;
     class about {
         init(){
             this.scroll();
             this.slider();
             this.addParagraph();
             this.topBtn();
+            this.resize();
         }
         scroll(){
             const fullPage = $('.full-page');
@@ -110,11 +111,11 @@
                             $('#sec1 .left-box').animate({opacity:0},function(){
                                 $('#sec1 .plus').css({display:'inline-block',opacity:'1'});
                                 $('#sec1 .slogan').css({width: 50+'%'});
-                                $('#sec1 h3').css({width: 100+'%',top:250});
+                                $('#sec1 h3').css({width: 100+'%',top:32+'%'});
                                 $('#sec1 h3 img').css({width: 82});
-                                $('#sec1 .left-box').animate({top:300},'easeInOutQuart', function(){
+                                $('#sec1 .left-box').animate({top:38+'%'},'easeInOutQuart', function(){
                                     $('#sec1 .left-box').animate({opacity:1},600,'easeInOutQuart');
-                                    $('#sec1 .right-box').animate({top:360},function(){
+                                    $('#sec1 .right-box').animate({top:46+'%'},function(){
                                         setTimeout(()=>{
                                             $('#sec1 .right-box').animate({opacity:1},600),'easeInQuart';
                                         },400)
@@ -194,8 +195,10 @@
                 if($(window).width()<mobPoint){
                     $('#sec4 .bot-area').html("<p>우리는 모두가 건강한 삶을 유지하도록 돕기 위해 모인 TEAM pilly예요!</p><p>필리의 일은, 단순히 영양제를 판매하는 것에서 그치지 않아요. 건강을 잃기 전에 미리 자신을 돌보는 것이 자연스러운 일상이 되도록 돕는 게 진짜 우리의 일이죠.</p><p>모두가 더 건강하게, 더 오래오래 살아가는 세상을 위해 우리만의 가치를 지키며 한 발 한 발 나아가고 있어요.</p>")
                     $('#sec6 .left-area .text-box').html("<p>필리가 폭발적으로 성장하고 있던 2020년 5월 어느 날, 필리 물류센터에 화재가 나고 말아요.</p><p>당장 정기구독 고객에게 보낼 제품이 다 타버렸고, 그대로 사업을 접어야 할 수밖에 없을 만큼 큰 위기였어요.</p><p>그때 우리가 가장 먼저 한 일은 고객들에게 상황에 대해 솔직하게 이야기하고, 할 수 있는 한 최선의 해결을 하겠다고 약속하는 거였어요.</p><p>그리고 빠른 제품 생산을 위해 지체 없이 제조사와 협업을 시작했죠. 상황이 어떻든, 우리의 목표는 오직 '고객이 받아보아야 할 제품을 빠르게 배송하는 것' 이었으니까요.</p><p>그리고 기적 같은 일이 있어났어요!</p>")
+                    $('#sec7 .area1 .right-box').remove();
                     $('#sec7 .area3 .left-box').remove();
                     $('#sec7 .area3').append('<div class="left-box"><img src="./img/about/about_contents_2.jpg" alt=""></div>');
+                    $('#sec7 .area1 .top-box').after('<div class="right-box"><img src="./img/about/about_pilly_box.png"></div>');
                 }
             });
         }
@@ -210,6 +213,16 @@
                     });
                     
                 });
+            });
+        }
+        resize(){
+            let win = undefined;
+            $(window).resize(function(){
+                console.log(win)
+                if(win == 'big' &&  $(window).width()<mobPoint) {location.reload()}
+                if(win == 'small' &&  $(window).width()>mobPoint) {location.reload()}
+                if($(window).width()<mobPoint){win='small';}
+                if($(window).width()>mobPoint){win = 'big';}
             });
         }
     }

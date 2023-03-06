@@ -1,11 +1,12 @@
 (($)=>{
-    const mobPoint = 600;
+    const mobPoint = 780;
     class service{
         init(){
             this.scroll();
             this.slider();
             this.modal();
             this.topBtn();
+            this.resize();
         }
         scroll(){
             const view = $('#viewer');
@@ -127,57 +128,59 @@
                         infiniteLoop:false
                     });
                 }
-            });
 
-            //gradient 설정
-            const slider2 = document.querySelector('.area2-slider');
-            $('.area2-slider').on('mouseenter',function(){
-                let left = slider2.getBoundingClientRect().left;
+                const slider2 = $('.area2-slider');
+            $('.area2').on('mouseover',function(){
+                // let left = slider2.offset().left;
+                let left = slider2.position().left;                 
                 // console.log('left : '+left);
-                if(left>=360){ //왼쪽에 닿음
+                if(left>=-1){ //왼쪽에 닿음
                     // console.log('left-over');
                     $('#sec2 .area2').removeClass('middle');
                     $('#sec2 .area2').removeClass('right');
                     $('#sec2 .area2').addClass('left');
-                    return;
                 }
-                if(left<=35){ //오른쪽에 닿음
+                if(left <= -324.9){ //오른쪽에 닿음
                     // console.log('right-over');
                     $('#sec2 .area2').removeClass('left');
                     $('#sec2 .area2').removeClass('middle');
                     $('#sec2 .area2').addClass('right');
-                    return;
                 }
-                if(left<360){//중간
+                if(left > -324.9 && left < 0){//중간
                     $('#sec2 .area2').removeClass('left');
                     $('#sec2 .area2').removeClass('right');
                     $('#sec2 .area2').addClass('middle');
                 }
             });
-            const slider3 = document.querySelector('.area3-slider');
-            $('.area3-slider').on('mouseenter',function(){
-                let left = slider3.getBoundingClientRect().left;
-                // console.log('left : '+left);
-                if(left>=360){ //왼쪽에 닿음
+            const slider3 = $('.area3-slider');
+            $('.area3').on('mouseover',function(){
+                let left = slider3.position().left;
+                console.log('left : '+left);
+                if(left>=0){ //왼쪽에 닿음
                     // console.log('left-over');
                     $('#sec2 .area3').removeClass('middle');
                     $('#sec2 .area3').removeClass('right');
                     $('#sec2 .area3').addClass('left');
                     return;
                 }
-                if(left<=35){ //오른쪽에 닿음
+                if(left<= -324.9){ //오른쪽에 닿음
                     // console.log('right-over');
                     $('#sec2 .area3').removeClass('left');
                     $('#sec2 .area3').removeClass('middle');
                     $('#sec2 .area3').addClass('right');
                     return;
                 }
-                if(left<360){//중간
+                if(left > -324.9 && left < 0){//중간
                     $('#sec2 .area3').removeClass('left');
                     $('#sec2 .area3').removeClass('right');
                     $('#sec2 .area3').addClass('middle');
                 }
             });
+            
+            });
+
+            //gradient 설정
+            // const slider2 = document.querySelector('.area2-slider');
         }
         modal(){
             $('.modal-btn').on('click',function(e){
@@ -237,6 +240,16 @@
                 });
             });
         }
+        resize(){
+            let win = undefined;
+            $(window).resize(function(){
+                console.log(win)
+                if(win == 'big' &&  $(window).width()<mobPoint) {location.reload()}
+                if(win == 'small' &&  $(window).width()>mobPoint) {location.reload()}
+                if($(window).width()<mobPoint){win='small';}
+                if($(window).width()>mobPoint){win = 'big';}
+            });
+        }
     }
     const newService = new service();
     newService.init();
@@ -249,7 +262,7 @@ const v = document.getElementById('viewer');
 
 function touch(){
     v.style.overflowY = 'scroll';
-                        $('#sec1').addClass('on');
+    $('#sec1').addClass('on');
     $('.title-box h2').eq(0).addClass('ani-fadeIn');
     $('.title-box h2').eq(1).addClass('ani-fadeIn');
     $('.text-box').addClass('ani-up2');

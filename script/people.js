@@ -1,11 +1,12 @@
 (($)=>{
-    const mobPoint = 600;
+    const mobPoint = 780;
     const dom = '<li><div class="people-card-wrap"></div></li>';
     class people {
         init(){  
             this.scroll();
             this.randomArray();
             this.topBtn();
+            this.resize();
         }
         scroll(){
             const view = $('#viewer');
@@ -105,6 +106,16 @@
                     $('#viewer').animate({scrollTop:0},300);
                     // location.reload();  
                 });
+            });
+        }
+        resize(){
+            let win = undefined;
+            $(window).resize(function(){
+                console.log(win)
+                if(win == 'big' &&  $(window).width()<mobPoint) {location.reload()}
+                if(win == 'small' &&  $(window).width()>mobPoint) {location.reload()}
+                if($(window).width()<mobPoint){win='small';}
+                if($(window).width()>mobPoint){win = 'big';}
             });
         }
     }
