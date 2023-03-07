@@ -326,6 +326,7 @@ main#aboutMain #sec1 .page .sub-page.sub7 .container {
   padding: 0 55px;
   margin: 0 auto;
   position: relative;
+  height: 100%;
 }
 main#aboutMain #sec1 .page .sub-page.sub7 .container img {
   z-index: 20;
