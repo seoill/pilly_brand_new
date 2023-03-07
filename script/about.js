@@ -41,8 +41,7 @@
             });
 
             window.onload = function(){       
-                // let url = window.location.hash.toString();
-                // if(url == '#sub7'){nowPage=7}
+                
                 pageResize();
                 setTimeout(()=>{
                     fullPage.each(function(){ //배열에 offset Top 넣기
@@ -51,8 +50,11 @@
                     },1000);
                 });
                 if(window.innerWidth <= mobPoint){
-                    mainMotion();
-                    autoAniSection();
+                    setTimeout(()=>{
+                        nowPage++;
+                        mainMotion(nowPage);
+                        autoAniSection();
+                    },700);
                 }
             }
 
@@ -69,14 +71,10 @@
                     let direction = e.originalEvent.wheelDelta;
                     if ($('#sec1').is(':animated') || $('.item').is(':animated')) return 
                     if(direction<=0) nowPage++;
-                    //테스트용
-                    // nowPage++
                     mainMotion(nowPage);
             });
             $('#viewer').on('scroll',function(){
                 if(window.innerWidth <= mobPoint){
-                    // nowPage++
-                    // mainMotion(nowPage);
                     if(!$('#viewer').scrollTop() == 0) {clearInterval(setId);}
                     else{
                         autoAniSection();
@@ -149,7 +147,7 @@
                         $('.sub6 .text-box strong').addClass('ani-up');
                         break;
                     case 6 :
-                        $('.sub7').animate({opacity:1}, 500,function(){
+                        $('.sub7').animate({opacity:1}, 500, function(){
                             $('.sub7 .container img').animate({opacity:1})
                             $('.sub7 .container img').addClass('ani-up');
                             if($(window).width()>mobPoint){
