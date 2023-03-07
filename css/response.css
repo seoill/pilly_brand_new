@@ -198,7 +198,7 @@
   }
   main#aboutMain #sec1 .page .sub-page.sub7 .container img {
     width: 90%;
-    margin-top: -82px;
+    margin-top: -126px;
   }
   main#aboutMain #sec1 .page .sub-page.sub7 .container img:first-child {
     display: none;
@@ -624,14 +624,14 @@
   }
   main#serviceMain #sec2 .container {
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
   }
   main#serviceMain #sec2 .container .wrap {
     width: 100%;
   }
   main#serviceMain #sec2 .container .wrap .area {
     width: 100%;
-    padding-bottom: 110px;
+    padding-bottom: 90px;
   }
   main#serviceMain #sec2 .container .wrap .area h2 {
     font-size: 32px;
@@ -714,7 +714,7 @@
     line-height: 31px;
   }
   main#serviceMain #sec2 .container .wrap .area.area3 .bx-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
   main#serviceMain #sec2 .container .wrap .area.area3 p {
     padding-bottom: 40px;

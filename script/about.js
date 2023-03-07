@@ -54,7 +54,7 @@
                         nowPage++;
                         mainMotion(nowPage);
                         autoAniSection();
-                    },700);
+                    },600);
                 }
             }
 
@@ -77,7 +77,11 @@
                 if(window.innerWidth <= mobPoint){
                     if(!$('#viewer').scrollTop() == 0) {clearInterval(setId);}
                     else{
-                        autoAniSection();
+                        setTimeout(()=>{
+                            nowPage++;
+                            mainMotion(nowPage);
+                            autoAniSection();
+                        },600);
                     }
                 }
             });
