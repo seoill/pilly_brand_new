@@ -195,10 +195,12 @@
     width: 100%;
     height: 100%;
     padding: 20px;
+    margin: 0 auto;
   }
   main#aboutMain #sec1 .page .sub-page.sub7 .container img {
     width: 90%;
     margin-top: -126px;
+    left: 20px;
   }
   main#aboutMain #sec1 .page .sub-page.sub7 .container img:first-child {
     display: none;
