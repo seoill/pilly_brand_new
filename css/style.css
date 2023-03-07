@@ -333,6 +333,7 @@ main#aboutMain #sec1 .page .sub-page.sub7 .container img {
   opacity: 0;
   width: 100%;
   margin-top: -102px;
+  left: 0;
 }
 main#aboutMain #sec1 .page .sub-page.sub7 .container img:last-child {
   display: none;
